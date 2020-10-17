@@ -1,0 +1,375 @@
+/* Making the background of the nav black and making it border-box */
+:root { 
+  --background: black;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Seeting body to margin 0 and setting default font */
+body {
+	margin: 0;
+	
+	font-family: 'Oswald', sans-serif;
+}
+
+/* setting background color and aligning text, also overlapping */
+header {
+  background: var(--background);
+  text-align: center;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+}
+
+/* When the screen gets smaller the white name still displays */
+.name {
+  color: white;
+}
+
+/* So checkbox remains out and page names are positioned where they need to be */
+.nav-toggle {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+/* positioning all the labels where it looks properly placed and giving it a height  */
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Here for the hamburger menu which comes up when you go to a smaller screen */
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 7px;
+}
+
+/* For hamburger menu response time and for aligned it to the left side  */
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: var(--background);
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 500ms ease-in-out;
+ 
+}
+
+/* Taking out point form and any padding and margin */
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+/* Hamburger menu closing response time and making letter uppercase */
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+  color: red;
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+/* Setting the px at which hamburger menu comes in */
+@media screen and (min-width: 800px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+header {
+  display: grid;
+  grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+}
+  
+.name  {
+  grid-column: 2 / 3; 
+  color: white;
+} 
+  
+nav {
+  position: relative;
+  text-align: left;
+  transition: none;
+  transform: scale(1,1);
+  background: none;
+  top: initial;
+  left: initial;
+    
+    
+  grid-column: 3 / 4;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+  
+nav ul {
+  display: flex;
+}
+  
+nav li {
+  margin-left: 3em;
+  margin-bottom: 0;
+}
+  
+nav a {
+  opacity: 1;
+  position: relative;
+}
+  
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background: white;
+  position: absolute;
+  top: -.75em;
+  left: 0;
+  right: 0;
+  transform: scale(0, 1);
+  transition: transform ease-in-out 250ms;
+}
+  
+nav a:hover::before {
+  transform: scale(1,1); 
+}
+}
+
+section {
+  padding: 2.1rem 0; 
+  background-image: url('https://images.unsplash.com/photo-1517747614396-d21a78b850e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=564&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+}
+
+.heading {
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  letter-spacing: 3px;
+  margin-right: -3px;
+  margin-bottom: 5rem;
+  text-align: center;
+  color: white;
+  -webkit-text-stroke: .2px black;
+   text-shadow: 
+      3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000, 
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+  position: relative; 
+}
+
+.heading::after {
+  content:"";
+  width: 10rem;
+  height: .8rem; 
+  background-color: white;
+  position: absolute;
+  bottom: -.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2rem;
+}
+
+/* Positioning the card and lining it up */
+
+.card {
+  min-width: 20ch;
+  max-width: 40ch;
+  
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  justify-content: center;
+  
+  background-color: #ebebeb;
+
+  box-shadow: .5rem .5rem .3rem rgba(0,0,0,0.2);
+  
+  margin: 1rem 1rem;
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  flex-direction: column; 
+}
+
+/* Changing colours, making images fit into place and shaping them */
+
+.card-img {
+  display: flex;
+  flex-direction: column;
+  
+  background-size: cover;
+  
+  width: 100%;
+  height: 10rem; 
+  object-fit: cover; 
+}
+
+/* Making the profile picture rounded and fit over top of background image */
+
+.profile-img {
+  width: 50%;
+  height: 9.5rem; 
+  
+  object-fit: cover;
+  
+  border: 0.5rem solid #ebebeb;
+  border-radius: 50%; 
+  
+  margin-top: -5rem;
+  z-index: 100;  
+} 
+
+/* Changing the colour of the vertical line and making the icons fit into place */
+
+.icons {
+  display: flex;
+  width: 100%;
+  
+  list-style: none;
+  
+  justify-content: space-evenly;
+  
+  gap: 1rem; 
+  padding: 0.5rem 0;  
+  
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  border-top: 1px solid rgba(0,0,0,.1); 
+}
+
+/* Changing the colour of the icons and resizing them */
+
+.icons i { 
+  font-size: 2.5rem;
+  
+  color: #1d378f;
+}
+
+/* Changing the heading "Jane Doe" font size and font family to make it look better. */
+
+.card1 {
+  font-size: 1.5rem;
+  font-family: 'Oswald', sans-serif;
+}
+
+/* Changing the font size and font family of the paragraph lorem ipsum text. Adding margin to space it out evenly and making it centered */
+
+.card p {
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;
+  
+  text-align: center;
+  
+  margin: 0.3rem;
+}
+
+@media screen and (min-width: 800px){
+  .card-wrapper {
+    flex-direction: row; 
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+form {
+  text-align: center; 
+ margin-top: 5rem;
+  margin-bottom: 5rem; 
+}
+
+input {
+   display: flex;
+  margin: 0 auto;
+  padding: 5px 20px;
+  width: 55rem;
+}
+
+label {
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: lightgreen;  
+  padding: 12px; 
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%; 
+}
+
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 1em;    
+  width: 100%; 
+}
+
+.Reg {
+border: 2px solid red;  
+}

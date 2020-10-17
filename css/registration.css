@@ -1,0 +1,300 @@
+/* Making the background of the nav black and making it border-box */
+:root { 
+  --background: black;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Seeting body to margin 0 and setting default font */
+body {
+	margin: 0;
+	
+	font-family: 'Oswald', sans-serif;
+}
+
+/* setting background color and aligning text, also overlapping */
+header {
+  background: var(--background);
+  text-align: center;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+}
+
+/* When the screen gets smaller the white name still displays */
+.name {
+  color: white;
+}
+
+/* So checkbox remains out and page names are positioned where they need to be */
+.nav-toggle {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+/* positioning all the labels where it looks properly placed and giving it a height  */
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Here for the hamburger menu which comes up when you go to a smaller screen */
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 7px;
+}
+
+/* For hamburger menu response time and for aligned it to the left side  */
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: var(--background);
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 500ms ease-in-out;
+}
+
+/* Taking out point form and any padding and margin */
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+/* Hamburger menu closing response time and making letter uppercase */
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+  color: red;
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+/* Setting the px at which hamburger menu comes in */
+@media screen and (min-width: 800px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+header {
+  display: grid;
+  grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+}
+  
+.name  {
+  grid-column: 2 / 3; 
+  color: white;
+} 
+  
+nav {
+  position: relative;
+  text-align: left;
+  transition: none;
+  transform: scale(1,1);
+  background: none;
+  top: initial;
+  left: initial;
+    
+    
+  grid-column: 3 / 4;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+  
+nav ul {
+  display: flex;
+}
+  
+nav li {
+  margin-left: 3em;
+  margin-bottom: 0;
+}
+  
+nav a {
+  opacity: 1;
+  position: relative;
+}
+  
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background: white;
+  position: absolute;
+  top: -.75em;
+  left: 0;
+  right: 0;
+  transform: scale(0, 1);
+  transition: transform ease-in-out 250ms;
+}
+  
+nav a:hover::before {
+  transform: scale(1,1); 
+}
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.container:hover .top:before, .container:hover .top:after, .container:hover .bottom:before, .container:hover .bottom:after, .container:active .top:before, .container:active .top:after, .container:active .bottom:before, .container:active .bottom:after {
+  margin-left: 200px;
+  transform-origin: -200px 50%;
+  transition-delay: 0s;
+}
+
+.container:hover .center, .container:active .center {
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+.top:before, .top:after, .bottom:before, .bottom:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 200vmax;
+  height: 200vmax;
+  top: 50%;
+  left: 50%;
+  margin-top: -100vmax;
+  transform-origin: 0 50%;
+  transition: all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
+  z-index: 10;
+  opacity: 0.65;
+  transition-delay: 0.2s;
+}
+
+.top:before {
+  transform: rotate(45deg);
+  background: #e46569;
+}
+
+.top:after {
+  transform: rotate(135deg);
+  background: #ecaf81;
+}
+
+.bottom:before {
+  transform: rotate(-45deg);
+  background: #60b8d4;
+}
+
+.bottom:after {
+  transform: rotate(-135deg);
+  background: #3745b5;
+}
+
+.center {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  margin-left: -200px;
+  margin-top: -200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
+  transition-delay: 0s;
+  color: #333;
+}
+
+.center input {
+  width: 100%;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 1px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+button {
+  background-color: lightgreen;  
+  padding: 12px; 
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%; 
+}
+
+button:hover {
+  background-color: red;
+}
+
+.foot {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 1em;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.Reg {
+  border: 2px solid red;  
+}
+

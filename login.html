@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abdullah">
+  <meta name="description" content="Scenario: Build a 5-page website.">
+  <title>TheFutbolDome</title>
+  <!-- css and fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/contactus.css"> 
+</head>
+<body>
+<header> 
+  <h1 class="name">TheFutbolDome</h1>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle"> 
+    <nav>
+      <ul>
+        <li><a class="Home" href="index.html">Home</a></li>
+        <li><a class="Gallery" href="gallery.html">Gallery</a></li>
+        <li><a class="Contact" href="contactus.html">Contact</a></li>
+        <li><a class="Login" href="login.html">Login</a></li>
+        <li><a class="Reg" href="registration.html">Registration</a></li>
+      </ul>
+    </nav>
+  <label for="nav-toggle" class="nav-toggle-label">
+    <span></span>
+  </label>
+</header>
+  <div class="container" onclick="onclick">
+    <div class="top"></div>
+    <div class="bottom"></div>
+    <div class="center">
+      <h2>Please Sign In</h2>
+      <input type="email" placeholder="email" required/>
+      <input type="password" placeholder="password" required/>
+      <button type="submit">Submit</button>
+    </div>
+  </div>
+  <div class="foot">
+    <footer>&copy; Copyright 2020 TheFutBolDome</footer>
+  </div> 
+</body>
+</html>
