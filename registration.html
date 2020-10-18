@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Abdullah">
+  <meta name="description" content="Scenario: Build a 5-page website.">
+  <title>TheFutbolDome</title>
+  <!-- css and fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/registration.css"> 
+</head>
+<body>
+<header> 
+  <h1 class="name">TheFutbolDome</h1>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle"> 
+    <nav>
+      <ul>
+        <li><a class="Home" href="index.html">Home</a></li>
+        <li><a class="Gallery" href="gallery.html">Gallery</a></li>
+        <li><a class="Contact" href="contactus.html">Contact</a></li>
+        <li><a class="Login" href="login.html">Login</a></li>
+        <li><a class="Reg" href="registration.html">Registration</a></li>
+      </ul>
+    </nav>
+  <label for="nav-toggle" class="nav-toggle-label">
+    <span></span>
+  </label>
+</header>
+  <form action="#">
+    <div class="container">
+      <h1 class="formh">Registration Form</h1>
+      
+      <div class="hero-text">
+        <p>Futbol-Your Game.</p>
+      </div>  
+
+      <div class="form">
+        <fieldset>
+          <div class="text-fields"> 
+            <p>
+              <label for="email">username:<abbr title="required" aria-label="required">*</abbr></label>  
+              <input type="email" id="email" name="email" placeholder="Please enter your username" required>
+            </p> 
+       
+            <p>
+              <label for="password">Password:<abbr title="required" aria-label="required">*</abbr></label> 
+              <input type="password" id="password" name="password"  placeholder="Please enter your password" minlength="8" required>
+            </p>
+          
+            <p>
+              <label for="cpassword">Confirm Password:<abbr title="required" aria-label="required">*</abbr></label> 
+              <input type="password" id="cpassword" name="cpassword"  placeholder="Please confirm your password" required>
+            </p> 
+          </div>
+          <button type="submit">Submit</button>
+        </fieldset>
+      </div>
+    </div>
+  </form>
+  <div class="foot">
+  <footer>&copy; Copyright 2020 TheFutBolDome</footer>
+  </div>
+</body> 
+</html>
