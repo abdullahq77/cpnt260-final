@@ -13,13 +13,13 @@ are also quite tough to workout for me.
 Copyright 2020 TheFutbolDome 
 
 ## Attributions
-I used [Kevin Powell's navigation video](https://www.youtube.com/watch?v=8QKOaTYvYUA)
+- I used [Kevin Powell's navigation video](https://www.youtube.com/watch?v=8QKOaTYvYUA)
 
-I used [this gallery video](https://www.youtube.com/watch?v=2dfBKlizVWQ)
+- I used [this gallery video](https://www.youtube.com/watch?v=2dfBKlizVWQ)
 
-I used [sample code](https://github.com/sait-wbdv/sample-code/tree/master/frontend)
+- I used [sample code](https://github.com/sait-wbdv/sample-code/tree/master/frontend)
 
-I used [unsplash for my images](https://unsplash.com/)
+- I used [unsplash for my images](https://unsplash.com/)
  
 ### GitHub Pages Link
 My GitHub Pages site is [abdullahq77 github.io cpnt260-final](https://abdullahq77.github.io/cpnt260-final/)
